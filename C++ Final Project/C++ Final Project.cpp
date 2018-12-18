@@ -106,18 +106,9 @@ int main()
 date input()
 {
 	date newDate;
-	cout << "Please enter the current day: ";
-	cin >> newDate.day;
-	cout << endl;
-
-	cout << "Please enter the current month: ";
-	cin >> newDate.month;
-	cout << endl;
-
-	cout << "Please enter the current year: ";
-	cin >> newDate.year;
+	cout << "Please enter the current date (ex. Dec 8 2018): ";
+	cin >> newDate.day >> newDate.month >> newDate.year;
 	cout << endl;
 
 	return newDate;
-
 }
