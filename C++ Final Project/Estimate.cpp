@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "Estimate.h"
 #include <iostream>
+#include <string>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 
 Estimate::Estimate()
@@ -22,18 +24,14 @@ void Estimate::printMenu() const
 	cout << "6: Tile Bathroom" << endl << endl;
 	//End
 	cout << "9: Other" << endl;
-	cout << "10: End program" << endl;
+	cout << "10: Job Scheduled" << endl;
 	cout << setfill('-') << setw(20) << "-" << endl;
 }
 
-//int Estimate::getMenu(int choice)
-//{
-//	cin >> choice;
-//	return choice;
-//}
-
 void Estimate::selection(int choice)
 {
+	string inputOther;
+
 	cin >> choice;
 
 	switch (choice)
@@ -50,7 +48,7 @@ void Estimate::selection(int choice)
 
 		break;
 	case 2:
-		cout << "How many (carpet)livingrooms will be cleaned today?" << endl;
+		cout << "How many (carpet)living rooms will be cleaned today?" << endl;
 		cin >> input;
 		cout << "The total will be: ";
 		cout << "$" << input * cLiving << endl;
@@ -85,7 +83,7 @@ void Estimate::selection(int choice)
 		cout << setfill('*') << setw(25) << "*" << endl << endl;
 		break;
 	case 5:
-		cout << "How many (tile)livingrooms will be cleaned today?" << endl;
+		cout << "How many (tile)living rooms will be cleaned today?" << endl;
 		cin >> input;
 		cout << "The total will be: ";
 		cout << "$" << input * cLiving << endl;
@@ -104,58 +102,75 @@ void Estimate::selection(int choice)
 		cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
 		cout << setfill('*') << setw(25) << "*" << endl << endl;
 		break;
-	//case 9:
-	//	cout << "Please input: \n";
-	//	cin >> inputOther;
+	case 9:
+		cout << "Please input: \n";
+		cin >> inputOther;
 
-	//	if (inputOther == "cHouse" || inputOther == "chouse" || inputOther == "CarpetHouse" || inputOther == "carpethouse" || inputOther == "CarpetHome" || inputOther == "carpethome")
-	//	{
-	//		//2 Bedrooms + 1 Living + 1 Bath
-	//		int House;
-	//		House = (cBed * 2) + cLiving + cBath;
+		if (inputOther == "cHouse" || inputOther == "chouse" || inputOther == "CarpetHouse" || inputOther == "carpethouse" || inputOther == "CarpetHome" || inputOther == "carpethome")
+		{
+			//2 Bedrooms + 1 Living + 1 Bath
+			int House;
+			House = (cBed * 2) + cLiving + cBath;
 
-	//		//Display
+			//Display
 
-	//		cout << "You selected: " << "Carpet Home" << endl << "Your grand total will be updated: " << endl;
+			cout << "You selected: " << "Carpet Home" << endl << "Your grand total will be updated: " << endl;
 
-	//		cout << setfill('*') << setw(25) << "*" << endl << endl;
-	//		grandTotal += House;
-	//		cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
-	//		cout << setfill('*') << setw(25) << "*" << endl << endl;
-	//		break;
-	//	}
+			cout << setfill('*') << setw(25) << "*" << endl << endl;
+			grandTotal += House;
+			cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
+			cout << setfill('*') << setw(25) << "*" << endl << endl;
+			break;
+		}
 
-	//	else if (inputOther == "tHouse" || inputOther == "thouse" || inputOther == "TileHouse" || inputOther == "tilehouse" || inputOther == "TileHome" || inputOther == "tilehome")
-	//	{
-	//		//2 Bedrooms + 1 Living + 1 Bath
-	//		int House;
-	//		House = (tBed * 2) + tLiving + tBath;
+		else if (inputOther == "tHouse" || inputOther == "thouse" || inputOther == "TileHouse" || inputOther == "tilehouse" || inputOther == "TileHome" || inputOther == "tilehome")
+		{
+			//2 Bedrooms + 1 Living + 1 Bath
+			int House;
+			House = (tBed * 2) + tLiving + tBath;
 
-	//		//Display
+			//Display
 
-	//		cout << "You selected: " << "Carpet Home" << endl << "Your grand total will be updated: " << endl;
+			cout << "You selected: " << "Carpet Home" << endl << "Your grand total will be updated: " << endl;
 
-	//		cout << setfill('*') << setw(25) << "*" << endl << endl;
-	//		grandTotal += House;
-	//		cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
-	//		cout << setfill('*') << setw(25) << "*" << endl << endl;
-	//		break;
-	//	}
+			cout << setfill('*') << setw(25) << "*" << endl << endl;
+			grandTotal += House;
+			cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
+			cout << setfill('*') << setw(25) << "*" << endl << endl;
+			break;
+		}
 
-	//	//Discount
+		//Discount
 
-	//	else if (inputOther == "Discount" || inputOther == "discount") 
-	//	{
-	//		int discount = 0;
-	//		cout << "Quick, whats the discount!";
-	//		cin >> discount;
+		else if (inputOther == "Discount" || inputOther == "discount") 
+		{
+			int discount = 0;
+			cout << "Quick, whats the discount!";
+			cin >> discount;
 
-	//		cout << setfill('*') << setw(25) << "*" << endl << endl;
-	//		grandTotal -= discount;
-	//		cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
-	//		cout << setfill('*') << setw(25) << "*" << endl << endl;
-	//	}
-	//	break;
+			cout << setfill('*') << setw(25) << "*" << endl << endl;
+			grandTotal -= discount;
+			cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
+			cout << setfill('*') << setw(25) << "*" << endl << endl;
+		}
+		break;
+	case 10:
+
+		int day;
+		string month, user, time;
+		int year;
+
+
+		cout << "Please tell me who you are: ";
+		cin >> user;
+		cout << "Great job getting a job scheduled " << user << "!"
+			<< "\nPlease enter the date the job was scheduled for(ex. Dec 8 2018): ";
+		cin >> month >> day >> year;
+		cout << "Also, please enter the agreed upon time(ex. 1:00 PM): ";
+		cin >> time;
+		ofstream jobsScheduled("Scheduled_Jobs.txt", ios_base::app);
+		jobsScheduled << "The job was scheduled for " << month << " " << day << " " << year << " at " << time;
+
 	}
 }
 
