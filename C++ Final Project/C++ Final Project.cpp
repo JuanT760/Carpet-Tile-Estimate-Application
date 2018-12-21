@@ -63,21 +63,36 @@ int main()
 			cout << "Welcome: " << user[y];
 			cout << endl;
 
-			Estimate m;
-			m.printMenu();
-			/*m.getMenu(choice);*/
+			//DECLARE CLASS HERE.
+			Estimate bo;
+			int input01 = 0;
 
-			//Repeat selection
-			m.selection(choice);
-
+			bo.printMenu();
+			bo.setChoice(input01);
+			//Modules
+			bo.carpetMenu();
+			bo.tileMenu();
+			bo.otherMenu();
+			bo.recordMenu();
+			//default
+			bo.repeatMsg();
+			//END OF CLASS
 			cout << "Do you want to make another estimate? (Y/N): ";
 			cin >> x;
 
 			while (x == 'y' || x == 'Y')
 			{
-				m.printMenu();
-				m.selection(choice);
-				
+				//Prints again, and receives value
+				bo.printMenu();
+				bo.setChoice(input01);
+				//Modules
+				bo.carpetMenu();
+				bo.tileMenu();
+				bo.otherMenu();
+				bo.recordMenu();
+				//default
+				bo.repeatMsg();
+				//END
 				cout << "Do you want to make another estimate? (Y/N): ";
 				numOfEstimates++;
 				cin >> x;
