@@ -5,3 +5,8 @@
 	User: Juan	Made 1 estimates on 18 Dec 2018
 	User: Juan	Made 1 estimates on 0  -858993460
 	User: Juan	Made 1 estimates on 0  -858993460
+	User: Juan	Made 3 estimates on 0  -858993460
+	User: Juan	Made 1 estimates on -858993460  -858993460
+	User: Juan	Made 1 estimates on 0  -858993460
+	User: Juan	Made 1 estimates on 2 2 3
+	User: Juan	Made 2 estimates on 0  -858993460

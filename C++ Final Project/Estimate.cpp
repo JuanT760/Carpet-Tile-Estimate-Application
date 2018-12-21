@@ -11,29 +11,48 @@ Estimate::Estimate()
 	cout << "Welcome to the estimate program, please choose something from the menu." << endl;
 }
 
-void Estimate::printMenu() const
+void Estimate::repeatMsg()
+{
+	switch (choice)
+	{
+	default:
+		cout << "Invalid choice, please select something from the menu. Thanks." << endl;
+	}
+}
+
+void Estimate::printMenu()
 {
 	cout << setfill('-') << setw(20) << "-" << endl;
 	cout << "Menu selection: " << endl;
+	//Carpet Module
 	cout << "1: Carpet Bedroom" << endl;
 	cout << "2: Carpet Living Room" << endl;
 	cout << "3: Carpet Bathroom" << endl << endl;
-	//Tile
+	//Tile Module
 	cout << "4: Tile Bedroom" << endl;
 	cout << "5: Tile Living Room" << endl;
 	cout << "6: Tile Bathroom" << endl << endl;
-	//End
+	//Other Module
 	cout << "9: Other" << endl;
+	//Record Module
 	cout << "10: Job Scheduled" << endl;
 	cout << setfill('-') << setw(20) << "-" << endl;
 }
 
-void Estimate::selection(int choice)
+
+int Estimate::getChoice()
 {
-	string inputOther;
+	return choice;
+}
 
-	cin >> choice;
+void Estimate::setChoice(int passingBY)
+{
+	cin >> passingBY;
+	choice = passingBY;
+}
 
+void Estimate::carpetMenu()
+{
 	switch (choice)
 	{
 	case 1:
@@ -67,11 +86,13 @@ void Estimate::selection(int choice)
 		cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
 		cout << setfill('*') << setw(25) << "*" << endl << endl;
 		break;
-	default:
-		cout << "Not a valid choice\n" << "Please choose from the menu\n";
-		cin >> choice;
-		break;
+	}
+}
 
+void Estimate::tileMenu()
+{
+	switch (choice)
+	{
 	case 4:
 		cout << "How many (tile) bedrooms will be cleaned today?" << endl;
 		cin >> input;
@@ -102,6 +123,16 @@ void Estimate::selection(int choice)
 		cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
 		cout << setfill('*') << setw(25) << "*" << endl << endl;
 		break;
+	}
+}
+
+void Estimate::otherMenu()
+{
+	//Block specific
+	string inputOther;
+
+	switch (choice)
+	{
 	case 9:
 		cout << "Please input: \n";
 		cin >> inputOther;
@@ -141,8 +172,7 @@ void Estimate::selection(int choice)
 		}
 
 		//Discount
-
-		else if (inputOther == "Discount" || inputOther == "discount") 
+		else if (inputOther == "Discount" || inputOther == "discount")
 		{
 			int discount = 0;
 			cout << "Quick, whats the discount!";
@@ -154,6 +184,13 @@ void Estimate::selection(int choice)
 			cout << setfill('*') << setw(25) << "*" << endl << endl;
 		}
 		break;
+	}
+}
+
+void Estimate::recordMenu()
+{
+	switch (choice)
+	{
 	case 10:
 
 		int day;
@@ -170,7 +207,6 @@ void Estimate::selection(int choice)
 		cin >> time;
 		ofstream jobsScheduled("Scheduled_Jobs.txt", ios_base::app);
 		jobsScheduled << "The job was scheduled for " << month << " " << day << " " << year << " at " << time;
-
 	}
 }
 
