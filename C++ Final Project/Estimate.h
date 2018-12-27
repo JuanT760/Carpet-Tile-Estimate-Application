@@ -13,8 +13,6 @@ public:
 	void tileMenu();
 	void otherMenu();
 	void recordMenu();
-	//default
-	void repeatMsg();
 
 private:
 	//Main var.
@@ -25,4 +23,3 @@ private:
 	const int  cBed = 40, cLiving = 70, cBath = 10;
 	const int tBed = 70, tLiving = 120, tBath = 15;
 };
-

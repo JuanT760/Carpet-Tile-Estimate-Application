@@ -6,18 +6,11 @@
 #include <fstream>
 using namespace std;
 
+int input;
+
 Estimate::Estimate()
 {
 	cout << "Welcome to the estimate program, please choose something from the menu." << endl;
-}
-
-void Estimate::repeatMsg()
-{
-	switch (choice)
-	{
-	default:
-		cout << "Invalid choice, please select something from the menu. Thanks." << endl;
-	}
 }
 
 void Estimate::printMenu()
@@ -200,8 +193,8 @@ void Estimate::recordMenu()
 
 		cout << "Please tell me who you are: ";
 		cin >> user;
-		cout << "Great job getting a job scheduled " << user << "!"
-			<< "\nPlease enter the date the job was scheduled for(ex. Dec 8 2018): ";
+		cout << "Great job getting a job scheduled!";
+		cout <<  "\nPlease enter the date the job was scheduled for(ex. Dec 8 2018): ";
 		cin >> month >> day >> year;
 		cout << "Also, please enter the agreed upon time(ex. 1:00 PM): ";
 		cin >> time;
@@ -209,4 +202,3 @@ void Estimate::recordMenu()
 		jobsScheduled << "The job was scheduled for " << month << " " << day << " " << year << " at " << time;
 	}
 }
-

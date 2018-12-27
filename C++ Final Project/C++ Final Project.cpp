@@ -4,6 +4,7 @@
 #include "pch.h"
 #include "Estimate.h"
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 using namespace std;
@@ -25,13 +26,15 @@ int main()
 	string user[3] = { { "Juan" }, { "Adrian" }, { "Carlos" } };
 	string pass[3] = { {"pass1"}, {"pass2"}, {"pass3"} };
 
+	cout << "\t\t\t" << setfill('=') << setw(30) << "=" << endl;
 	//Print users
 	for (int i = 0; i < 3; i++)
 	{
-		cout << "Option " << i << " ";
-		cout << user[i];
+		cout << "\t\t\tOption " << i << " ";
+		cout << "\t\t" << user[i];
 		cout << endl;
 	}
+	cout << "\t\t\t" << setfill('=') << setw(30) << "=" << endl;
 
 	//Input for login.
 	string inUSER;
@@ -74,8 +77,6 @@ int main()
 			bo.tileMenu();
 			bo.otherMenu();
 			bo.recordMenu();
-			//default
-			bo.repeatMsg();
 			//END OF CLASS
 			cout << "Do you want to make another estimate? (Y/N): ";
 			cin >> x;
@@ -90,8 +91,6 @@ int main()
 				bo.tileMenu();
 				bo.otherMenu();
 				bo.recordMenu();
-				//default
-				bo.repeatMsg();
 				//END
 				cout << "Do you want to make another estimate? (Y/N): ";
 				numOfEstimates++;
@@ -104,15 +103,16 @@ int main()
 			cout << "\tUser: " << user[y] << "\tMade " << numOfEstimates << " estimates."
 				<< "\nFor record purposes ";
 
-			date d;
-
-			d = input();
+			//Instance of struct...
+			//date d;
+			//d = input();
 			
 			//Write to file.
-			ofstream counter_record("records.txt", ios_base::app);
-			counter_record << "\tUser: " << user[y] << "\tMade " << numOfEstimates << " estimates on " << d.day << " " << d.month << " " << d.year << endl;
-			counter_record.close();
+			//ofstream counter_record("records.txt", ios_base::app);
+			//counter_record << "\tUser: " << user[y] << "\tMade " << numOfEstimates << " estimates on " << d.day << " " << d.month << " " << d.year << endl;
+			//counter_record.close();
 
+			//wip - actually save estimate
 			cout << "Thanks for making estimates, your record has been saved!";
 			}
 		}
