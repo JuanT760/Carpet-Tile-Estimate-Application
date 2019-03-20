@@ -10,7 +10,10 @@ int input;
 
 Estimate::Estimate()
 {
-	cout << "Welcome to the estimate program, please choose something from the menu." << endl;
+	choice = 0;
+	grandTotal += 0;
+	cBed = 40, cLiving = 70, cBath = 10;
+	tBed = 70, tLiving = 120, tBath = 15;
 }
 
 void Estimate::printMenu()
@@ -40,7 +43,19 @@ int Estimate::getChoice()
 
 void Estimate::setChoice(int passingBY)
 {
+	string errorMsg = "Please select something from the menu";
+	try
+	{
 	choice = passingBY;
+	if (choice > 10)
+		throw errorMsg;
+	else if (!cin)
+		throw string("Invalid input was made".);
+	}
+	catch (string s)
+	{
+		cout << s << endl;
+	}
 }
 
 void Estimate::carpetMenu()
@@ -120,7 +135,6 @@ void Estimate::tileMenu()
 
 void Estimate::otherMenu()
 {
-	//Block specific
 	string inputOther;
 
 	switch (choice)
@@ -188,7 +202,6 @@ void Estimate::recordMenu()
 		int day;
 		string month, user, time;
 		int year;
-
 
 		cout << "Please tell me who you are: ";
 		cin >> user;

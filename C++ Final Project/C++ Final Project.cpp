@@ -13,6 +13,7 @@ using namespace std;
 const int numOFusers = 3;
 //Prototype
 void groupModules();
+Estimate bo;
 
 int main()
 {
@@ -53,28 +54,19 @@ int main()
 		{
 			cout << "Welcome: " << user[y];
 			cout << endl;
-
 			groupModules();
-			//END OF CLASS
 			cout << "Do you want to make another estimate? (Y/N): ";
 			cin >> x;
 
 			while (x == 'y' || x == 'Y')
 			{
-				//Prints again, and receives value
 				groupModules();
-				//END
 				cout << "Do you want to make another estimate? (Y/N): ";
 				numOfEstimates++;
 				cin >> x;
-
-				//Display the counter **DELETE?**
 				cout << "The estimates made: " << numOfEstimates << endl;
 			}
-			//END
-			cout << "\tUser: " << user[y] << "\tMade " << numOfEstimates << " estimates."
-				<< "\nFor record purposes ";
-
+			cout << "\tUser: " << user[y] << "\tMade " << numOfEstimates << " estimates." << "\nFor record purposes ";
 			cout << "Thanks for making estimates, your record has been saved!";
 			}
 		}
@@ -82,14 +74,10 @@ int main()
 
 void groupModules()
 {
-		//DECLARE CLASS HERE.
-	Estimate bo;
 	int input01 = 0;
-
 	bo.printMenu();
 	cin >> input01;
 	bo.setChoice(input01);
-		//Modules
 	bo.carpetMenu();
 	bo.tileMenu();
 	bo.otherMenu();

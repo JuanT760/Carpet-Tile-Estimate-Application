@@ -18,8 +18,8 @@ private:
 	//Main var.
 	int choice;
 	//Grand total
-	double grandTotal = 0;
+	double grandTotal;
 	//Prices
-	const int  cBed = 40, cLiving = 70, cBath = 10;
-	const int tBed = 70, tLiving = 120, tBath = 15;
+	int  cBed, cLiving, cBath;
+	int tBed, tLiving, tBath;
 };
