@@ -11,8 +11,10 @@ public:
 	string getUser();
 	string getPass();
 	void printUsers();
+	bool logicTest(string test_userN[3], string test_userP[3]);
 private:
 	string user[3];
 	string pass[3];
+	int amountUsers;
 };
 

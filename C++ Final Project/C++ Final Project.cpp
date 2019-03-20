@@ -13,6 +13,7 @@ using namespace std;
 const int numOFusers = 3;
 //Prototype
 void groupModules();
+//Class decleration
 LoginSys bo;
 
 int main()

@@ -136,7 +136,6 @@ void Estimate::tileMenu()
 void Estimate::otherMenu()
 {
 	string inputOther;
-
 	switch (choice)
 	{
 	case 9:

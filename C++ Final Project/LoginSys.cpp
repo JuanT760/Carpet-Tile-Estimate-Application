@@ -12,6 +12,8 @@ LoginSys::LoginSys()
 	pass[0] = "pass1";
 	pass[1] = "pass2";
 	pass[2] = "pass3";
+
+	amountUsers = 3;
 }
 
 void LoginSys::setUser(string userN[3])
@@ -44,6 +46,19 @@ void LoginSys::printUsers()
 		cout << endl;
 	}
 	cout << "\t\t\t" << setfill('=') << setw(30) << "=" << endl;
+}
 
+bool LoginSys::logicTest(string test_userN[3], string test_passP[3])
+{
+	for (int i = 0; i < amountUsers; i++)
+	{
+		if (test_userN[i] == user[i] && test_passP[i] == pass[i])
+		{
+			cout << "Login succesfull. Please press any key to continue...";
+			return true;
+		}
+		else 
+			return false;
+	}
 }
 
