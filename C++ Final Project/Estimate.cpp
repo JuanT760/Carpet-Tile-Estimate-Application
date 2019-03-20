@@ -40,7 +40,6 @@ int Estimate::getChoice()
 
 void Estimate::setChoice(int passingBY)
 {
-	cin >> passingBY;
 	choice = passingBY;
 }
 

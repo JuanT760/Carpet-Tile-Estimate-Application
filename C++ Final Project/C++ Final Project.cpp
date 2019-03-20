@@ -11,15 +11,8 @@ using namespace std;
 
 //NUMBER OF USERS
 const int numOFusers = 3;
-
-struct date {
-	int day;
-	string month;
-	int year;
-};
-
-//PROTOTYPE
-date input();
+//Prototype
+void groupModules();
 
 int main()
 {
@@ -40,10 +33,6 @@ int main()
 	string inUSER;
 	string inPASS;
 
-	//**CHECK IF ID WAS USED**
-	int ID = 0;
-	int choice = 0;
-
 	//Loop Var?
 	char x = 'x';
 	
@@ -62,21 +51,10 @@ int main()
 	{
 		if (inUSER == user[y] && inPASS == pass[y])
 		{
-			ID = 0;
 			cout << "Welcome: " << user[y];
 			cout << endl;
 
-			//DECLARE CLASS HERE.
-			Estimate bo;
-			int input01 = 0;
-
-			bo.printMenu();
-			bo.setChoice(input01);
-			//Modules
-			bo.carpetMenu();
-			bo.tileMenu();
-			bo.otherMenu();
-			bo.recordMenu();
+			groupModules();
 			//END OF CLASS
 			cout << "Do you want to make another estimate? (Y/N): ";
 			cin >> x;
@@ -84,13 +62,7 @@ int main()
 			while (x == 'y' || x == 'Y')
 			{
 				//Prints again, and receives value
-				bo.printMenu();
-				bo.setChoice(input01);
-				//Modules
-				bo.carpetMenu();
-				bo.tileMenu();
-				bo.otherMenu();
-				bo.recordMenu();
+				groupModules();
 				//END
 				cout << "Do you want to make another estimate? (Y/N): ";
 				numOfEstimates++;
@@ -103,27 +75,23 @@ int main()
 			cout << "\tUser: " << user[y] << "\tMade " << numOfEstimates << " estimates."
 				<< "\nFor record purposes ";
 
-			//Instance of struct...
-			//date d;
-			//d = input();
-			
-			//Write to file.
-			//ofstream counter_record("records.txt", ios_base::app);
-			//counter_record << "\tUser: " << user[y] << "\tMade " << numOfEstimates << " estimates on " << d.day << " " << d.month << " " << d.year << endl;
-			//counter_record.close();
-
-			//wip - actually save estimate
 			cout << "Thanks for making estimates, your record has been saved!";
 			}
 		}
 	}
 
-date input()
+void groupModules()
 {
-	date newDate;
-	cout << "Please enter the current date (ex. Dec 8 2018): ";
-	cin >> newDate.day >> newDate.month >> newDate.year;
-	cout << endl;
+		//DECLARE CLASS HERE.
+	Estimate bo;
+	int input01 = 0;
 
-	return newDate;
+	bo.printMenu();
+	cin >> input01;
+	bo.setChoice(input01);
+		//Modules
+	bo.carpetMenu();
+	bo.tileMenu();
+	bo.otherMenu();
+	bo.recordMenu();
 }
