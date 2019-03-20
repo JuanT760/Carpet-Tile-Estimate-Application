@@ -50,7 +50,7 @@ void Estimate::setChoice(int passingBY)
 	if (choice > 10)
 		throw errorMsg;
 	else if (!cin)
-		throw string("Invalid input was made".);
+		throw string("Invalid input was made.");
 	}
 	catch (string s)
 	{
