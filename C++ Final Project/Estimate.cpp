@@ -11,13 +11,14 @@ int input;
 Estimate::Estimate()
 {
 	choice = 0;
-	grandTotal += 0;
+	grandTotal = 0;
 	cBed = 40, cLiving = 70, cBath = 10;
 	tBed = 70, tLiving = 120, tBath = 15;
 }
 
 void Estimate::printMenu()
 {
+	system("CLS");
 	cout << setfill('-') << setw(20) << "-" << endl;
 	cout << "Menu selection: " << endl;
 	//Carpet Module
@@ -141,17 +142,13 @@ void Estimate::otherMenu()
 	case 9:
 		cout << "Please input: \n";
 		cin >> inputOther;
-
 		if (inputOther == "cHouse" || inputOther == "chouse" || inputOther == "CarpetHouse" || inputOther == "carpethouse" || inputOther == "CarpetHome" || inputOther == "carpethome")
 		{
 			//2 Bedrooms + 1 Living + 1 Bath
 			int House;
 			House = (cBed * 2) + cLiving + cBath;
-
 			//Display
-
 			cout << "You selected: " << "Carpet Home" << endl << "Your grand total will be updated: " << endl;
-
 			cout << setfill('*') << setw(25) << "*" << endl << endl;
 			grandTotal += House;
 			cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
@@ -164,25 +161,20 @@ void Estimate::otherMenu()
 			//2 Bedrooms + 1 Living + 1 Bath
 			int House;
 			House = (tBed * 2) + tLiving + tBath;
-
 			//Display
-
 			cout << "You selected: " << "Carpet Home" << endl << "Your grand total will be updated: " << endl;
-
 			cout << setfill('*') << setw(25) << "*" << endl << endl;
 			grandTotal += House;
 			cout << "Your grand total is: " << "$" << grandTotal << endl << endl;
 			cout << setfill('*') << setw(25) << "*" << endl << endl;
 			break;
 		}
-
 		//Discount
 		else if (inputOther == "Discount" || inputOther == "discount")
 		{
 			int discount = 0;
 			cout << "Quick, whats the discount!";
 			cin >> discount;
-
 			cout << setfill('*') << setw(25) << "*" << endl << endl;
 			grandTotal -= discount;
 			cout << "Your grand total is: " << "$" << grandTotal << endl << endl;

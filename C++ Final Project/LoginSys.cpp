@@ -2,6 +2,7 @@
 #include "LoginSys.h"
 #include <iostream>
 #include <iomanip>
+#include <cassert>
 
 LoginSys::LoginSys()
 {
@@ -14,6 +15,7 @@ LoginSys::LoginSys()
 	pass[2] = "pass3";
 
 	amountUsers = 3;
+	userPtr = &amountUsers;
 }
 
 void LoginSys::setUser(string userN[3])
@@ -41,24 +43,27 @@ void LoginSys::printUsers()
 	cout << "\t\t\t" << setfill('=') << setw(30) << "=" << endl;
 	for (int i = 0; i < 3; i++)
 	{
-		cout << "\t\t\tOption " << i << endl;
-		cout << user[i] << endl;
+		cout << "\t\t\tUser " << i << ":" << endl;
+		cout << "\t\t\t\t" << user[i] << endl;
 		cout << endl;
 	}
 	cout << "\t\t\t" << setfill('=') << setw(30) << "=" << endl;
 }
 
-bool LoginSys::logicTest(string test_userN[3], string test_passP[3])
+bool LoginSys::logicTest(string test_userN, string test_passP)
 {
 	for (int i = 0; i < amountUsers; i++)
 	{
-		if (test_userN[i] == user[i] && test_passP[i] == pass[i])
+		if (test_userN == user[i] && test_passP == pass[i])
 		{
-			cout << "Login succesfull. Please press any key to continue...";
+			system("CLS");
+			cout << "Login succesfull. ";
+			system("PAUSE");
 			return true;
 		}
-		else 
-			return false;
+		else
+			system("CLS");
+			cout << "[ERROR]: Invalid username, or password. Please try again.";
+			abort();
 	}
 }
-
