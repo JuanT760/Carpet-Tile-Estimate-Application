@@ -12,13 +12,12 @@ using namespace std;
 
 //Prototype
 void groupModules();
-void overLoad();
+void getCost();
 //Class decleration
 LoginSys bo;
 
 int main()
 {
-	overLoad();
 	//Input for login.
 	string inUSER;
 	string inPASS;
@@ -46,7 +45,8 @@ int main()
 		cin >> x;
 		cout << "The estimates made: " << numOfEstimates << endl;
 	}
-	cout << "Thanks for making estimates, your record has been saved!";
+	cout << "Thanks for making estimates, Extra information; ";
+	getCost();
 }
 
 void groupModules()
@@ -58,18 +58,19 @@ void groupModules()
 	bo.carpetMenu();
 	bo.tileMenu();
 	bo.otherMenu();
-	bo.recordMenu();
 }
 
-void overLoad()
+void getCost()
 {
 	Room su0;
 	su0.setLength(30);
 	su0.setWidth(10);
 	Room su1;
-	su1.setLength(10);
-	su1.setWidth(15);
+	su1.setLength(30);
+	su1.setWidth(10);
 	Room su2;
 	su2 = su0 + su1;
-	cout << "$" << su2.getSqFtCost();
+	cout << endl;
+	cout << "Cost of two rooms (per sqft)" << "$" << su2.getSqFtCost();
+	cout << endl;
 }

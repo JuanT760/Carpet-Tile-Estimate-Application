@@ -31,8 +31,6 @@ void Estimate::printMenu()
 	cout << "6: Tile Bathroom" << endl << endl;
 	//Other Module
 	cout << "9: Other" << endl;
-	//Record Module
-	cout << "10: Job Scheduled" << endl;
 	cout << setfill('-') << setw(20) << "-" << endl;
 }
 
@@ -181,27 +179,5 @@ void Estimate::otherMenu()
 			cout << setfill('*') << setw(25) << "*" << endl << endl;
 		}
 		break;
-	}
-}
-
-void Estimate::recordMenu()
-{
-	switch (choice)
-	{
-	case 10:
-
-		int day;
-		string month, user, time;
-		int year;
-
-		cout << "Please tell me who you are: ";
-		cin >> user;
-		cout << "Great job getting a job scheduled!";
-		cout <<  "\nPlease enter the date the job was scheduled for(ex. Dec 8 2018): ";
-		cin >> month >> day >> year;
-		cout << "Also, please enter the agreed upon time(ex. 1:00 PM): ";
-		cin >> time;
-		ofstream jobsScheduled("Scheduled_Jobs.txt", ios_base::app);
-		jobsScheduled << "The job was scheduled for " << month << " " << day << " " << year << " at " << time;
 	}
 }

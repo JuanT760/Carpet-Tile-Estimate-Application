@@ -12,8 +12,6 @@ public:
 	void carpetMenu();
 	void tileMenu();
 	void otherMenu();
-	void recordMenu();
-
 private:
 	//Main var.
 	int choice;
